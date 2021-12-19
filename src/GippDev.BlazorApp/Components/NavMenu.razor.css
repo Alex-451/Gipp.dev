@@ -1,0 +1,21 @@
+﻿ul li {
+    margin: 0;
+    list-style-type: none;
+    display: inline-block;
+    width: 30%;
+}
+
+.menu {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@media (min-width: 641px) {
+    ul li {
+        width: 10%;
+    }
+}
