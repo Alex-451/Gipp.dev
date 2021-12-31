@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GippDev.Server.Controllers;
 
+[ApiController]
+[Route("links")]
 public class UtilityController : Controller
 {
     private readonly IUrlShortener _urlShortener;
@@ -12,13 +14,13 @@ public class UtilityController : Controller
         _urlShortener = urlShortener;
     }
 
-    [HttpGet("/{redirectKey}")]
+    [HttpGet("{redirectKey}")]
     public async Task<IActionResult> Index(string redirectKey)
     {
         var redirectUri = await _urlShortener.GetAsync(redirectKey);
 
         if (redirectUri is null)
-            return View();
+            return Redirect($"/");
         else
             return Redirect(redirectUri.AbsoluteUri);
     }

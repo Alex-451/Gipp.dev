@@ -1,4 +1,6 @@
+pushd .\GippDev\Server
 dotnet publish -c Release -r linux-x64
-pushd .\src\GippDev.BlazorApp\bin\Release\net6.0\publish\
-scp -r .\wwwroot\ root@gipp.dev:/var/www/gipp
+pushd .\bin\Release\net6.0\linux-x64\publish
+scp -r * root@gipp.dev:/var/www/gipp
+systemctl restart gippweb
 popd
